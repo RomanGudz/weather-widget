@@ -3,15 +3,20 @@ import {
   renderWidgetOther,
   renderWidgetToday
 } from "./render.js"
+import { dataWeather } from "./utils.js";
 
-export const startWidget = () => {
-  const widget = document.createElement('div')
+export const startWidget = async () => {
+  const widget = document.createElement('div');
 
-  widget.classList.add('widget')
+  widget.classList.add('widget');
 
-  renderWidgetToday(widget)
-  renderWidgetOther(widget)
-  renderWidgetForecast(widget)
+  if (dataWeather.success) {
+    renderWidgetToday(widget);
+    renderWidgetOther(widget);
+  } else {
+    showError();
+  }
+  renderWidgetForecast(widget);
 
   return widget
 }
