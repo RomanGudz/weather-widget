@@ -1,8 +1,5 @@
 import { startWidget } from "./widgetService.js";
-
 import { fetchForecast, fetchWeather } from "./APIservice.js";
-// import { updateCity } from "./utils.js";
-
 
 export const cityServiseSearch = (widget) => {
   const button = document.querySelector('.widget__change-city');
@@ -23,13 +20,12 @@ export const cityServiseSearch = (widget) => {
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const cityName = input.value;
-      // updateCity(cityName);
+
       widget.textContent = '';
-      await fetchWeather(cityName);
-      await fetchForecast(cityName)
-      await startWidget(widget)
-      cityServiseSearch(widget)
+      await fetchWeather(input.value);
+      await fetchForecast(input.value);
+      await startWidget(widget);
+      cityServiseSearch(widget);
 
     })
   })

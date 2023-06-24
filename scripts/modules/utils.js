@@ -1,9 +1,6 @@
 import { fetchForecast, fetchWeather } from "./APIservice.js";
-let city = 'Белгород'
-// export const updateCity = (newCity) => {
-//   city = newCity;
-// };
-export const dataWeather = await fetchWeather(city);
+
+export const dataWeather = await fetchWeather();
 export const weatherToday = () => {
   const icon = dataWeather.data.weather[0].icon;
   const sity = dataWeather.data.name;
@@ -17,7 +14,7 @@ export const weatherToday = () => {
 
   return { icon, sity, temp, tempFeels, windSpeed, humidity, devPoint, pressure, windDeg, dataWeather };
 }
-export const dataForecast = await fetchForecast(city);
+export const dataForecast = await fetchForecast();
 export const getWeatherForecastData = () => {
   const forecast = dataForecast.data.list.filter((item) => {
     return new Date(item.dt_txt).getHours() === 12 &&
