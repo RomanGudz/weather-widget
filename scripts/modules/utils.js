@@ -1,5 +1,8 @@
 import { fetchForecast, fetchWeather } from "./APIservice.js";
 let city = 'Белгород'
+// export const updateCity = (newCity) => {
+//   city = newCity;
+// };
 export const dataWeather = await fetchWeather(city);
 export const weatherToday = () => {
   const icon = dataWeather.data.weather[0].icon;

@@ -6,14 +6,12 @@ import {
 import { dataWeather, dataForecast } from "./utils.js";
 
 export const startWidget = async (widget) => {
-  // console.log(city)
 
   if (!widget) {
     widget = document.createElement('div');
 
     widget.classList.add('widget');
   }
-
 
   if (dataWeather.success) {
     renderWidgetToday(widget);
@@ -27,6 +25,5 @@ export const startWidget = async (widget) => {
   } else {
     showError();
   }
-
   return widget
 }

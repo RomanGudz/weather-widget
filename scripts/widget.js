@@ -9,4 +9,4 @@ const initWidget = async (app) => {
   cityServiseSearch(widget);
 }
 
-initWidget(document.querySelector('#app'))
+initWidget(document.querySelector('#app'));
