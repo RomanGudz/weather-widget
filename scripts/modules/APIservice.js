@@ -11,7 +11,7 @@ export const fetchWeather = async (city) => {
   console.log(city)
 
   try {
-    const response = await fetch(`${API_URL}weather?q=${city}&appid=${API_KEY}&lang=ru`);
+    const response = await fetch(`${API_URL}weather?q=${city}&appid=${API_KEY}&lang=en`);
     if (!response.ok) {
       throw new Error('Ошибка запроса')
     }
@@ -30,7 +30,7 @@ export const fetchForecast = async (city) => {
     }
   }
   try {
-    const response = await fetch(`${API_URL}forecast?q=${city}&appid=${API_KEY}&lang=ru`);
+    const response = await fetch(`${API_URL}forecast?q=${city}&appid=${API_KEY}&lang=en`);
     if (!response.ok) {
       throw new Error('Ошибка запроса')
     }
